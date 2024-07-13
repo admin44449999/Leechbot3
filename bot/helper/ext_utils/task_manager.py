@@ -207,8 +207,8 @@ async def task_utils(message):
     LOGGER.info('Running Task Manager ...')
     msg = []
     button = None
-    if await CustomFilters.sudo('', message):
-        return msg, button
+   # if await CustomFilters.sudo('', message):
+    #    return msg, button
     user_id = message.from_user.id
     token_msg, button = await checking_access(user_id, button)
     if token_msg is not None:
