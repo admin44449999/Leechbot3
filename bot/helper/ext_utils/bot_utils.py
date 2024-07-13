@@ -652,7 +652,7 @@ async def checking_access(user_id, button=None):
     if config_dict['LOGIN_PASS'] is not None and data.get('token', '') == config_dict['LOGIN_PASS']:
         return None, button
     isExpired = (expire is None or expire is not None and (time() - expire) > config_dict['TOKEN_TIMEOUT'])
-    if isExpired:
+    if not isExpired:
         token = data['token'] if expire is None and 'token' in data else str(uuid4())
         if expire is not None:
             del data['time']
